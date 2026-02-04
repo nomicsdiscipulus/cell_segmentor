@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cell-segmentation-using-dinobloom-foundation-model">Cell Segmentation using DinoBloom Foundation Model</h1>
+<p><strong>Author</strong>: Chunrui Zou
+<strong>Date</strong>: February 2026
+<strong>Assignment</strong>: Merck Pre-Interview Coding Assignment</p>
+<hr>
+<h2 id="overview">Overview</h2>
+<p>This project demonstrates how pathology foundation models can be repurposed for <strong>cell segmentation</strong>. We adapt <strong>DinoBloom</strong>, a hematology-specific foundation model pre-trained on 13 blood cell datasets, to perform semantic segmentation on the BCCD blood cell dataset.</p>
+<h3 id="key-components">Key Components</h3>
+<ol>
+<li><strong>Backbone</strong>: DinoBloom (frozen)</li>
+<li><strong>Segmentation Head</strong>: Learnable decoder to upsample patch features to pixel resolution</li>
+<li><strong>Loss Function</strong>: BCE + Dice combined loss for handling class imbalance</li>
+<li><strong>Evaluation</strong>: Intersection over Union (IoU), Dice Score, Precision, Recall metrics</li>
+</ol>
+<hr>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Python 3.10+</li>
+<li>CPU (recommended due to our training fished in a CPU only laptop with 16 GB ram) or GPU</li>
+</ul>
+<h3 id="1-environment-setup">1. Environment Setup</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Install dependencies </span>
+pip install -r requirements.txt
+
+<span class="hljs-comment"># For GPU support</span>
+pip install torch==2.6.0+cu118 torchvision==0.21.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+</div></code></pre>
+<h3 id="2-data-setup">2. Data Setup</h3>
+<p>Download the BCCD dataset from <a href="https://www.kaggle.com/datasets/jeetblahiri/bccd-dataset-with-mask">Kaggle</a> and organize as follows:</p>
+<pre class="hljs"><code><div>cell_segmentor/
+└── Data/
+    └── BCCD/
+        ├── train/
+        │   ├── original/          # Training images (1,169 files)
+        │   │   ├── image1.jpg
+        │   │   ├── image2.jpg
+        │   │   └── ...
+        │   └── mask/              # Training masks (1,169 files)
+        │       ├── image1.png     # Binary mask (0=background, 255=cell)
+        │       ├── image2.png
+        │       └── ...
+        ├── test/
+        │   ├── original/          # Test images (159 files)
+        │   │   └── ...
+        │   └── mask/              # Test masks (159 files)
+        │       └── ...
+        └── splits.json            # Train/val split (auto-generated)
+</div></code></pre>
+<p><strong>Important notes:</strong></p>
+<ul>
+<li>Images are ~1600×1200 pixels (JPG format)</li>
+<li>Masks are binary PNG files: 0 = background, 255 = cell</li>
+<li>Mask filenames must match image filenames (with .png extension)</li>
+<li><code>splits.json</code> is auto-generated on first run (80% train, 20% val)</li>
+</ul>
+<h3 id="3-model-weights-dinobloom">3. Model Weights (DinoBloom)</h3>
+<p>Download DinoBloom checkpoints from <a href="https://zenodo.org/records/10908163">Zenodo</a> and place in:</p>
+<pre class="hljs"><code><div>cell_segmentor/
+└── DinoBloom/
+    └── checkpoints/
+        ├── DinoBloom-S.pth        # Small   - RECOMMENDED
+        ├── DinoBloom-B.pth        # Base   
+        └── DinoBloom-L.pth        # Large  
+</div></code></pre>
+<p><strong>Recommended</strong>: Start with <code>DinoBloom-S.pth</code>  for faster training and lower memory usage.</p>
+<h3 id="4-pre-trained-segmentation-model-optional">4. Pre-trained Segmentation Model (Optional)</h3>
+<p>To skip training and use our pre-trained model, the checkpoint is located at:</p>
+<pre class="hljs"><code><div>cell_segmentor/
+└── Codes/
+    └── outputs/
+        └── training/
+            └── tiling_transposed_conv_20260203_203221/
+                ├── best.pth       # Best checkpoint (Dice: 0.9536)
+                ├── config.json    # Training configuration
+                └── history.json   # Training history
+</div></code></pre>
+<hr>
+<h2 id="running-the-code">Running the Code</h2>
+<h3 id="option-a-jupyter-notebook-recommended-for-exploration">Option A: Jupyter Notebook (Recommended for Exploration)</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> cell_segmentor
+jupyter notebook cell_segmentation.ipynb
+</div></code></pre>
+<p>The notebook includes:</p>
+<ul>
+<li>Data exploration and visualization</li>
+<li>Model architecture explanation</li>
+<li>Training loop (can skip if using pre-trained)</li>
+<li>Evaluation on test set</li>
+<li>Inference demo on single images</li>
+</ul>
+<h3 id="option-b-command-line-scripts">Option B: Command Line Scripts</h3>
+<p><strong>Training:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> cell_segmentor
+python Codes/main.py \
+    --mode tiling \
+    --backbone small \
+    --head transposed_conv \
+    --epochs 20 \
+    --batch_size 8 \
+    --lr 1e-4 \
+    --loss bce_dice \
+    --scheduler cosine \
+    --early_stopping 10
+</div></code></pre>
+<p><strong>Evaluation:</strong></p>
+<pre class="hljs"><code><div>python Codes/evaluate.py \
+    --checkpoint Codes/outputs/training/tiling_transposed_conv_20260203_203221/best.pth \
+    --visualize 10
+</div></code></pre>
+<hr>
+<h2 id="project-structure">Project Structure</h2>
+<pre class="hljs"><code><div>cell_segmentor/
+├── Codes/
+│   ├── backbone/              # DinoBloom wrapper
+│   │   └── dinobloom.py       # Model loading and feature extraction
+│   ├── data/                  # Data loading pipeline
+│   │   ├── dataset.py         # PyTorch Dataset classes
+│   │   ├── transforms.py      # Image preprocessing
+│   │   ├── tiling.py          # Tile extraction and stitching
+│   │   └── splits.py          # Train/val split utilities
+│   ├── models/                # Model architecture
+│   │   ├── segmentation_head.py  # Decoder heads
+│   │   └── cell_segmentor.py     # Full model (backbone + head)
+│   ├── training/              # Training pipeline
+│   │   ├── losses.py          # BCE + Dice loss
+│   │   └── trainer.py         # Training loop
+│   ├── evaluation/            # Metrics and visualization
+│   │   ├── metrics.py         # IoU, Dice, Precision, Recall
+│   │   └── visualize.py       # Prediction visualization
+│   ├── utils/                 # Utility scripts
+│   │   ├── explore_bccd.py    # Dataset exploration
+│   │   └── analyze_cells.py   # Cell statistics analysis
+│   ├── unitTest/              # Unit tests and experiments
+│   │   ├── 01_model_loading/  # DinoBloom loading tests
+│   │   ├── 02_data_pipeline/  # Data pipeline tests
+│   │   ├── 03_inference/      # Feature extraction experiments
+│   │   ├── 04_model_architecture/  # Model architecture tests
+│   │   ├── 05_training/       # Training pipeline tests
+│   │   └── 06_evaluation/     # Evaluation tests
+│   ├── outputs/               # Generated outputs
+│   │   ├── exploration/       # Dataset analysis figures
+│   │   └── training/          # Checkpoints and logs
+│   ├── main.py                # Training entry point
+│   └── evaluate.py            # Evaluation entry point
+├── Data/
+│   └── BCCD/                  # Dataset (see Data Setup above)
+├── DinoBloom/
+│   ├── checkpoints/           # Model weights (see Model Weights above)
+│   └── dinov2/                # DINOv2 backbone code
+├── cell_segmentation.ipynb    # Main notebook
+├── requirements.txt           # Python dependencies
+└── README.md                  # This file
+</div></code></pre>
+<hr>
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="objective">Objective</h3>
+<p>Demonstrate how pathology foundation models can be repurposed for cell segmentation.</p>
+<h3 id="approach">Approach</h3>
+<p>Use DinoBloom (a hematology-specific foundation model) as a frozen feature extractor, adding a lightweight segmentation head to produce pixel-level predictions on the BCCD blood cell dataset.</p>
+<hr>
+<h2 id="data-exploration">Data Exploration</h2>
+<h3 id="dataset-overview">Dataset Overview</h3>
+<ul>
+<li><strong>Source</strong>: BCCD (Blood Cell Count and Detection) Dataset</li>
+<li><strong>Training images</strong>: 1,169</li>
+<li><strong>Test images</strong>: 159</li>
+<li><strong>Image size</strong>: ~1600 x 1200 pixels</li>
+<li><strong>Mask format</strong>: Binary (0 = background, 255 = cell)</li>
+</ul>
+<h3 id="key-observations">Key Observations</h3>
+<ol>
+<li><strong>High dimensionality</strong>: Images are much larger than model input (224x224)</li>
+<li><strong>Semantic imbalance</strong>: ~80%+ pixels are background, ~20% cells</li>
+<li><strong>Multiple cell types</strong>: RBC (red), WBC (white), Platelets (though masks are binary)</li>
+<li><strong>Overlapping cells</strong>: Some cells touch or overlap, making instance separation challenging. ( not implemented due to time limit)</li>
+</ol>
+<h3 id="challenges">Challenges</h3>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Impact</th>
+<th>Our Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High dimension images</td>
+<td>Memory constraints and larger model input than DinoBloom training samples (224x224)</td>
+<td>Tiling approach</td>
+</tr>
+<tr>
+<td>Semantic imbalance</td>
+<td>Model biased to background</td>
+<td>BCE + Dice loss</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sample-images-and-masks">Sample Images and Masks</h3>
+<p><img src="Codes/outputs/exploration/explore_bccd/bccd_samples.png" alt="BCCD Dataset Samples"></p>
+<p><em>Figure 1: Sample images from BCCD dataset (top row) and their corresponding binary masks (bottom row). Image dimensions are 1600×1200 pixels.</em></p>
+<h3 id="dataset-statistics">Dataset Statistics</h3>
+<p>From analyzing 100 sampled training images:</p>
+<ul>
+<li><strong>Image dimensions</strong>: 1600 × 1200</li>
+<li><strong>Cell pixel ratio</strong>: 28.0%</li>
+<li><strong>Average cells per image</strong>: 90.4</li>
+</ul>
+<p><img src="Codes/outputs/exploration/explore_bccd/bccd_cell_stats.png" alt="Cell Statistics"></p>
+<p><em>Figure 2: Cell statistics distribution across the dataset.</em></p>
+<hr>
+<h2 id="model-structure">Model Structure</h2>
+<h3 id="why-dinobloom-over-uni">Why DinoBloom over UNI?</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>UNI</th>
+<th>DinoBloom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training Data</td>
+<td>General pathology (100M+ patches)</td>
+<td>Hematology-specific (13 blood cell datasets)</td>
+</tr>
+<tr>
+<td>Domain Match</td>
+<td>General</td>
+<td><strong>Directly matches BCCD</strong></td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>ViT-L</td>
+<td>ViT-S/B/L (DINOv2-based)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rationale</strong>: DinoBloom was trained on blood cell images, making its features better suited for BCCD. Its relevance was further confirmed by visualizing the forward features from the backbone in below analysis.</p>
+<h3 id="design-decisions">Design Decisions</h3>
+<ol>
+<li><strong>Frozen Backbone</strong>: Pre-trained features are already relevant; prevents overfitting on small dataset</li>
+<li><strong>Transposed Conv Decoder</strong>: Learnable upsampling captures spatial patterns better than bilinear</li>
+<li><strong>Binary Segmentation</strong>: BCCD masks are binary; <s>instance separation via post-processing</s></li>
+</ol>
+<h3 id="model-size-options">Model Size Options</h3>
+<p>The DinoBloom comes with different model sizes with embedding sizes:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Embedding Dim</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DinoBloom-S (Small)</td>
+<td>384</td>
+<td>22M</td>
+</tr>
+<tr>
+<td>DinoBloom-B (Base)</td>
+<td>768</td>
+<td>86M</td>
+</tr>
+<tr>
+<td>DinoBloom-L (Large)</td>
+<td>1024</td>
+<td>304M</td>
+</tr>
+<tr>
+<td>DinoBloom-G (Giant)</td>
+<td>1536</td>
+<td>1.1B</td>
+</tr>
+</tbody>
+</table>
+<p>Features for sampled BCCD images from different model sizes were visualized.</p>
+<h3 id="determination-of-image-preprocessings-and-model-size">Determination of Image Preprocessings and Model Size</h3>
+<p>Due to the BCCD images are larger than the training images for DinoBloom, I have to preprocess the BCCD images and decide a proper model size to use. I have listed three strategies for image preprocessing:</p>
+<ul>
+<li>Resizing the whole image to 224x224 to be consistent with that of the training images for DinoBloom.</li>
+<li>Padding the image to be multiple of 224x224 so we can slide through the whole image for each training sample.</li>
+<li>Tiling through the original images with a shared proportion of overlapping to avoid tile boundary issues and proper strategy to stitch tiles.</li>
+</ul>
+<p>Three strategies were visualized below in different columns using sampled images (different samples for now due to time limit) with different model sizes (small in the first row, base in the second row, large in the last row). The embeddings for each token of an embedding size were reduced to 3 principal components by PCA. Due to model differences and sample differences, PCA will result in different values which cause color variations.</p>
+<p><img src="Codes/outputs/feature_comparison_grid.png" alt="Feature Comparison Grid"></p>
+<p><em>Figure 3: DinoBloom feature extraction comparison across model sizes (rows: Small, Base, Large) and preprocessing approaches (columns: Resize, Padding, Tiling). Features visualized using PCA reduction to 3 components.</em></p>
+<p><strong>Observations:</strong></p>
+<ul>
+<li>For resizing strategy, due to loss of resolution, the features from the backbone becomes mosaic smudges which resemble the distribution of cells for all model sizes.</li>
+<li>For padding strategy, we can see more local contrast compared with resizing and the features is local to cells. Since the whole image is taken as input for feature inference, the background is smoothed compared with tiling strategy.</li>
+<li>Tiling strategy is generating features tile by tile, so it is less memory intensive and we have more local contrast since it is locally contexted. However, the local background noise increased which caused more local feature variation in the background.</li>
+</ul>
+<p><strong>Conclusion (DinoBloom-S with tiling and padding)</strong>:</p>
+<ul>
+<li>We decide to go with a design with both padding and tiling strategies as alternatives.</li>
+<li>Tiling through the whole image takes more time, in real training, we use random crop to extract only one tile from training and validation dataset. But for inference, we take full tilings. (Note: Full tiling across the whole image (at least for validation) should be the standard strategy, I implement this only due to limited time and resources.)</li>
+<li>For padding, different model sizes have similar local contrast for cells. For tiling, larger model sizes appear to reduce background noise and result in a clearer contrast for cell boundaries. But, the small model gives enough contrast for segmentation. I chose to go with the small model for now. For classification or phenotyping of cells, larger models probably generate richer information, but I leave this for future study.</li>
+</ul>
+<h3 id="model-architecture">Model Architecture</h3>
+<p>Input Image (224x224x3) -&gt; Backbone (Frozen) -&gt; Patch Features (256x384) -&gt; Reashpe to (16x16x384) -&gt; Segmentation Head -&gt; Output Logits (2x224x224)</p>
+<hr>
+<h2 id="training">Training</h2>
+<h3 id="training-loss">Training Loss</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross-Entropy</td>
+<td>Pixel-level accuracy, stable gradients</td>
+</tr>
+<tr>
+<td>Dice Loss</td>
+<td>Handles class imbalance, measures overlap</td>
+</tr>
+</tbody>
+</table>
+<p>With majority pixels being background, pure BCE would bias toward predicting background. Dice loss directly optimizes the overlap metric we care about.</p>
+<h3 id="training-progress">Training Progress</h3>
+<p>The model converged quickly due to the frozen backbone: the pre-trained features are already highly relevant for blood cell images. Best checkpoint saved at epoch 13.</p>
+<p>We first go on with the small model and only 20 epochs for training. And I found it is enough to obtain good segmentation results just for demonstration. The training reaches minimum before epoch 20.</p>
+<h3 id="training-configuration">Training Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Epochs</td>
+<td>20</td>
+<td>Sufficient for frozen backbone</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>8</td>
+<td>Balance memory and gradient stability</td>
+</tr>
+<tr>
+<td>Learning Rate</td>
+<td>1e-4</td>
+<td>Standard for Adam with frozen backbone</td>
+</tr>
+<tr>
+<td>Optimizer</td>
+<td>AdamW</td>
+<td>Better generalization</td>
+</tr>
+<tr>
+<td>Scheduler</td>
+<td>Cosine Annealing</td>
+<td>Smooth LR decay</td>
+</tr>
+<tr>
+<td>Early Stopping</td>
+<td>10 epochs patience</td>
+<td>Prevent overfitting</td>
+</tr>
+<tr>
+<td>Loss</td>
+<td>BCE + Dice (0.5 each)</td>
+<td>Handle class imbalance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="training-curves">Training Curves</h3>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/training_curves.png" alt="Training Curves"></p>
+<p><em>Figure 4: Training and validation loss (left) and validation Dice score (right) over epochs. Best checkpoint at epoch 13.</em></p>
+<p><strong>Best epoch</strong>: 13 (val_loss: 0.1504, val_dice: 0.9691)</p>
+<hr>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="quantitative-metrics-test-set-159-images">Quantitative Metrics (Test Set: 159 images)</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cell IoU</strong></td>
+<td><strong>0.9112</strong></td>
+<td>Intersection over Union</td>
+</tr>
+<tr>
+<td><strong>Cell Dice</strong></td>
+<td><strong>0.9536</strong></td>
+<td>Primary segmentation metric</td>
+</tr>
+<tr>
+<td><strong>Precision</strong></td>
+<td>0.9396</td>
+<td>Few false positives</td>
+</tr>
+<tr>
+<td><strong>Recall</strong></td>
+<td>0.9680</td>
+<td>96.8% of cells detected</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>0.9709</td>
+<td>Overall pixel accuracy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="per-class-breakdown">Per-Class Breakdown</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>IoU</th>
+<th>Dice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Background</td>
+<td>0.9584</td>
+<td>0.9788</td>
+</tr>
+<tr>
+<td>Cell</td>
+<td>0.9112</td>
+<td>0.9536</td>
+</tr>
+<tr>
+<td><strong>Mean</strong></td>
+<td>0.9348</td>
+<td>0.9662</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metrics-visualization">Metrics Visualization</h3>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/metric_plots/aggregate_metrics.png" alt="Aggregate Metrics"></p>
+<p><em>Figure 5: Bar chart of evaluation metrics on test set.</em></p>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/metric_plots/class_comparison.png" alt="Class Comparison"></p>
+<p><em>Figure 6: Per-class metrics comparison (Background vs Cell).</em></p>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/metric_plots/dice_distribution.png" alt="Dice Distribution"></p>
+<p><em>Figure 7: Distribution of per-image Dice scores across the test set.</em></p>
+<h3 id="qualitative-results">Qualitative Results</h3>
+<p><strong>Note:</strong> some mismatches are actually caused undersegmented ground truth masks, especially those cut by image boundaries.</p>
+<h4 id="success-case-high-dice">Success Case (High Dice)</h4>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/visualizations/e3ade58d-086c-47fa-9120-76beacb45395_pred.png" alt="Success Case"></p>
+<p><em>Figure 8: Success case showing accurate cell segmentation with high Dice score (0.9761).</em></p>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/visualizations/e3ade58d-086c-47fa-9120-76beacb45395_error.png" alt="Success Case Error Map"></p>
+<p><em>Figure 9: Error map for success case. Green=True Positive, Red=False Positive, Blue=False Negative, Black=True Negative.</em></p>
+<h4 id="challenging-case-lower-dice">Challenging Case (Lower Dice)</h4>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/visualizations/e1937e32-85d5-4cd8-bb4a-b9cf8ee7ceeb_pred.png" alt="Challenging Case"></p>
+<p><em>Figure 10: Challenging case with lower Dice score (0.9011), showing more difficult segmentation scenarios.</em></p>
+<p><img src="Codes/outputs/training/tiling_transposed_conv_20260203_203221/evaluation/visualizations/e1937e32-85d5-4cd8-bb4a-b9cf8ee7ceeb_error.png" alt="Challenging Case Error Map"></p>
+<p><em>Figure 11: Error map for challenging case showing areas of false positives and false negatives.</em></p>
+<hr>
+<h2 id="discussion">Discussion</h2>
+<h3 id="what-worked-well">What Worked Well</h3>
+<ol>
+<li><strong>Domain-specific foundation model</strong>: DinoBloom's hematology training provided excellent features for blood cell segmentation</li>
+<li><strong>Frozen backbone</strong>: Prevented overfitting, enabled fast training</li>
+<li><strong>Tiling approach</strong>: Preserved cell scale, handled high-resolution (high dimensional) images effectively</li>
+<li><strong>BCE + Dice loss</strong>: Effectively addressed class imbalance</li>
+</ol>
+<h3 id="limitations">Limitations</h3>
+<ol>
+<li><strong>Binary segmentation only</strong>: Cannot distinguish individual overlapping cells</li>
+<li><strong>Tile boundary artifacts</strong>: Slight inconsistencies at tile edges (mitigated by Gaussian blending)</li>
+<li><strong>No cell type classification</strong>: All cells treated equally (RBC, WBC, Platelets)</li>
+<li><strong>Separation of Instance not Implemented</strong>: Special treatment on the separation of cell instances are not implemented due to time lime.</li>
+</ol>
+<h3 id="potential-improvements">Potential Improvements</h3>
+<table>
+<thead>
+<tr>
+<th>Improvement</th>
+<th>Expected Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fine-tune last 2-3 backbone layers</td>
+<td>potentiall performance improvement</td>
+</tr>
+<tr>
+<td>Instance segmentation head</td>
+<td>Separate overlapping cells</td>
+</tr>
+<tr>
+<td>Auto-tune implementation</td>
+<td>Handle color/staining variations</td>
+</tr>
+<tr>
+<td>Padding implementation</td>
+<td>potential better performance</td>
+</tr>
+</tbody>
+</table>
+<h3 id="future-work">Future Work</h3>
+<ol>
+<li>Classification and Phenotyping of these cells by their morphological and textural features are very intriguing areas for more studies.</li>
+<li>Adaptation of this backbone to different tissue types such as lung tissues is worth exploring.</li>
+</ol>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>This project demonstrates that <strong>pathology foundation models can be effectively repurposed for cell segmentation</strong> with minimal training. By leveraging DinoBloom's pre-trained features and adding a lightweight segmentation head, we achieve strong performance (<strong>Dice &gt; 0.95</strong>) while training only with basic model size.</p>
+<p><strong>Key Takeaways:</strong></p>
+<ol>
+<li>Domain-specific foundation models (DinoBloom for hematology) provide superior features for cell segmentation.</li>
+<li>Freezing the backbone enables efficient training on small datasets</li>
+<li>Tiling-based inference handles high-dimensional images while preserving cell scale</li>
+<li>Combined BCE + Dice loss effectively addresses class imbalance</li>
+</ol>
+<p>The approach is practical for real-world deployment: fast training, low memory requirments, and strong performance during inference.</p>
+
+</body>
+</html>
