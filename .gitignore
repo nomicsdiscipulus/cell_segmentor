@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 BCCD/
 checkpoints/
+__pycache__/
+*pyc
