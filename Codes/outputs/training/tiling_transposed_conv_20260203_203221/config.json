@@ -1,0 +1,23 @@
+{
+  "mode": "tiling",
+  "data_root": "D:\\A_Jobs\\Merck\\Fd-To-Sg\\Data\\BCCD",
+  "backbone": "small",
+  "head": "transposed_conv",
+  "freeze_backbone": true,
+  "unfreeze_backbone": false,
+  "epochs": 20,
+  "batch_size": 20,
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "loss": "bce_dice",
+  "scheduler": "cosine",
+  "early_stopping": 10,
+  "output_dir": "D:\\A_Jobs\\Merck\\Fd-To-Sg\\Codes\\outputs\\training",
+  "experiment_name": "tiling_transposed_conv_20260203_203221",
+  "device": "cpu",
+  "seed": 2026,
+  "num_workers": 0,
+  "log_interval": 10,
+  "split_path": "D:\\A_Jobs\\Merck\\Fd-To-Sg\\Data\\BCCD\\splits.json",
+  "checkpoint_dir": "D:\\A_Jobs\\Merck\\Fd-To-Sg\\Codes\\outputs\\training\\tiling_transposed_conv_20260203_203221"
+}
