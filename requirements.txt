@@ -1,0 +1,38 @@
+torch==2.10.0
+torchvision==0.25.0
+numpy>=2.4.0
+pillow>=12.1.0
+scipy>=1.17.0
+scikit-learn>=1.8.0
+tqdm>=4.67.0
+matplotlib>=3.10.0
+
+# Jupyter Notebook Support
+ipykernel>=6.0.0
+
+# Jupyter versions used during development (installed separately):
+# IPython==9.6.0
+# ipykernel==6.31.0
+# jupyter_client==8.6.3
+# jupyter_core==5.8.1
+# jupyter_server==2.16.0
+# jupyterlab==4.4.10
+# notebook==7.4.7
+
+# Optional: GPU acceleration (requires compatible CUDA)
+# Warning will be given when running code, but it is fine.
+# xformers>=0.0.18
+
+# =================================================
+# Installation Instructions:
+# =================================================
+#
+# Basic installation (CPU):
+#   pip install -r requirements.txt
+#
+#   
+# For GPU support (CUDA 11.8):
+#   pip install torch==2.6.0+cu118 torchvision==0.21.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+# pip install -r requirements.txt
+
+
