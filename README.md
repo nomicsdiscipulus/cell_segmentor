@@ -1,14 +1,15 @@
 # Cell Segmentation using DinoBloom Foundation Model
 
 **Author**: Chunrui Zou
-**Date**: February 2026
-**Assignment**: Merck Pre-Interview Coding Assignment
+**Created Date**: February 2026
+**Updated Date**: Feb. 24 2026
+**Versions**: 0.x
 
 ---
 
 ## Overview
 
-This project demonstrates how pathology foundation models can be repurposed for **cell segmentation**. We adapt **DinoBloom**, a hematology-specific foundation model pre-trained on 13 blood cell datasets, to perform semantic segmentation on the BCCD blood cell dataset.
+This project demonstrates how pathology foundation models can be repurposed for **cell segmentation**. We firstly adapt **DinoBloom**, a hematology-specific foundation model pre-trained on 13 blood cell datasets, to perform semantic segmentation on the BCCD blood cell dataset. More backbone models were adapted in addition to DinoBloom such UNI foundation model. The project acts as a personal pratice to gain knowledge about foundation model adaptation and potentially move to the upstream foundation model design and training for other areas.
 
 ### Key Components
 
